@@ -94,7 +94,7 @@ void display(ComponentType comp, int number) {
     _multiplex(text, COMPONENT_HOLD_TIME);
 
     if(comp == OPEN_CIRCUIT) {
-        _multiplex(_dashMap, 2000)
+        _multiplex(_dashMap, VALUE_HOLD_TIME);
     } else {
         number = abs(number) % 10000;
         uint8_t numPatterns[4] = {
@@ -107,10 +107,10 @@ void display(ComponentType comp, int number) {
     }    
 }
 
-const uint8_t* _get_digit_pins() {
+static const uint8_t* _get_digit_pins() {
     return _digitPins;
 }
 
-const uint8_t* _get_segment_pins() {
+static const uint8_t* _get_segment_pins() {
     return _segmentPins;
 }
