@@ -91,7 +91,7 @@ void display(ComponentType comp, int number) {
             text = _openMap;
             break;
     }
-    _multiplex(txt, COMPONENT_HOLD_TIME);
+    _multiplex(text, COMPONENT_HOLD_TIME);
 
     if(comp == OPEN_CIRCUIT) {
         _multiplex(_dashMap, 2000)
