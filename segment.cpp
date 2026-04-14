@@ -24,10 +24,10 @@ static const uint8_t _digitMap[10] = {
 };
 
 // hackjy way to display text
-static const uint8_t _openMap[4] = {0b0111111, 0b1110011, 0b1111001, 0b0110111};
-static const uint8_t _resiMap[4] = {0b1010000, 0b1111001, 0b1101101, 0b0010000};
-static const uint8_t _capMap[4]  = {0b0111001, 0b1110111, 0b1110011, 0b0000000};
-static const uint8_t _dioMap[4]  = {0b0111101, 0b0010000, 0b0111011, 0b0111101};
+static const uint8_t _openMap[4] = {0b1111110, 0b1100111, 0b1001111, 0b0010101};
+static const uint8_t _resiMap[4] = {0b0000101, 0b1001111, 0b1011011, 0b0010000};
+static const uint8_t _capMap[4]  = {0b1001110, 0b1110111, 0b1100111, 0b0000000};
+static const uint8_t _dioMap[4]  = {0b0111101, 0b0010000, 0b0011101, 0b0111101};
 static const uint8_t _dashMap[4]  = {0b0000001, 0b0000001, 0b0000001, 0b0000001};
 
 void init_d() {
@@ -96,7 +96,8 @@ void display(ComponentType comp, int number) {
     if(comp == OPEN_CIRCUIT) {
         _multiplex(_dashMap, VALUE_HOLD_TIME);
     } else {
-        number = abs(number) % 10000;
+        number = abs(number);
+        if (number > 9999) number = 9999;
         uint8_t numPatterns[4] = {
             _digitMap[(number / 1000) % 10],
             _digitMap[(number / 100)  % 10],
@@ -105,12 +106,4 @@ void display(ComponentType comp, int number) {
         };
         _multiplex(numPatterns, VALUE_HOLD_TIME);
     }    
-}
-
-static const uint8_t* _get_digit_pins() {
-    return _digitPins;
-}
-
-static const uint8_t* _get_segment_pins() {
-    return _segmentPins;
 }
