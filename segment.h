@@ -11,4 +11,4 @@ enum ComponentType {
 // initialises outputs for the display
 void init_d();
 
-void display(ComponentType comp, int number);
+void display(ComponentType comp, float value);
