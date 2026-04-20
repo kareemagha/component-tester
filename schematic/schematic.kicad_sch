@@ -3113,16 +3113,6 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 33.02) (xy 138.43 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50b498af-6db8-45b8-b026-cf426051744f")
-	)
-	(wire
-		(pts
 			(xy 219.71 72.39) (xy 219.71 73.66)
 		)
 		(stroke
@@ -3570,16 +3560,6 @@
 			(type default)
 		)
 		(uuid "fe10e5f9-de4b-49a1-91d1-6eeb79a9aab7")
-	)
-	(label "Tester"
-		(at 247.65 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9f8cc1cf-8208-40bb-a397-1941a40dd75f")
 	)
 	(global_label "SEGE"
 		(shape input)
@@ -4375,7 +4355,7 @@
 	)
 	(global_label "D3"
 		(shape input)
-		(at 138.43 27.94 90)
+		(at 139.7 27.94 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4385,7 +4365,7 @@
 		)
 		(uuid "787bbf88-758a-4b17-964c-a25e50fd9d0f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 138.43 22.4753 90)
+			(at 139.7 22.4753 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4442,6 +4422,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "Tester"
+		(shape input)
+		(at 247.65 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7a82cb76-7cb1-410d-a6f2-27f9a1d553e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 238.98 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -5695,7 +5699,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 138.43 30.48 0)
+		(at 139.7 30.48 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -5707,7 +5711,7 @@
 		(fields_autoplaced yes)
 		(uuid "2418d288-babc-4114-9198-28b825fabc59")
 		(property "Reference" "R3"
-			(at 135.89 29.2099 0)
+			(at 137.16 29.2099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5718,7 +5722,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 135.89 31.7499 0)
+			(at 137.16 31.7499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5729,7 +5733,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 138.43 30.48 0)
+			(at 139.7 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5740,7 +5744,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 138.43 30.48 0)
+			(at 139.7 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5751,7 +5755,7 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
-			(at 138.43 30.48 0)
+			(at 139.7 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8594,7 +8598,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1000uF"
+		(property "Value" "250uF"
 			(at 257.81 38.1062 0)
 			(show_name no)
 			(do_not_autoplace no)
