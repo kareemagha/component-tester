@@ -1,4 +1,5 @@
 #include "segment.h"
+#include "buzzer.h"
 #include <math.h>
 
 #define P_OUT 0
@@ -28,6 +29,7 @@ uint16_t measureRawTicks();
 void setup() {
   pinMode(P_OUT, OUTPUT);
   pinMode(P_READ, INPUT);
+  buzz_init();
   init_d();
 
   // get avg
@@ -41,6 +43,8 @@ void setup() {
     }
   }
   baselineV = good > 0 ? (sum / good) : 0;
+
+  buzzStartup();
 }
 
 void loop() {
@@ -48,6 +52,7 @@ void loop() {
   ComponentType comp = detectComponent(val);
   // noInterrupts();
   display(comp, val);
+  buzzResult(comp);
   // interrupts();
 }
 
@@ -199,7 +204,8 @@ uint16_t measureRawTicks() {
   ADMUX = (ADMUX & 0xF0) | 0x00;
   ADCSRB |= (1 << ACME);
 
-  // enable comparator: bandgap (1.1V) on AIN+, A0 on AIN-, wired to Timer1
+  // enable comparator
+  // bandgap (1.1V) on AIN+, A0 on AIN-, wired to timer1
   // capture
   ACSR = (1 << ACBG) | (1 << ACIC) | (1 << ACI);
 
@@ -257,7 +263,6 @@ float measureSmallCapacitance() {
   if (ticks < MIN_TICKS)
     return 0.0f;
 
-  // Subtract calibrated baseline (comparator delay + stray capacitance)
   if (ticks > baselineV)
     ticks -= baselineV;
   else
